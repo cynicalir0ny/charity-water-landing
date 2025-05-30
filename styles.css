@@ -77,12 +77,13 @@ body {
   background: url('img/blurred background child playing with clean water in their country.jpg') no-repeat center center/cover;
   color: white;
   position: relative;
-  padding: 56px 16px 100px 16px;
+  min-height: 100vh; /* Fill the entire viewport */
+  height: 100vh;     /* Ensure full screen height */
+  padding: 0 0 40px 0;        /* Remove extra padding */
   display: flex;
   flex-direction: row;         /* Place overlay and image side by side */
   justify-content: flex-start; /* Overlay on the left */
-  align-items: flex-end;       /* Overlay at the bottom */
-  min-height: 380px;
+  align-items: center;       /* Overlay at the bottom */
   transition: padding 0.3s;
 }
 
