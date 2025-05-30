@@ -73,106 +73,100 @@ body {
 
 /* HERO SECTION */
 .hero {
-  /* Use the child playing image as the background */
-  background: url('img/blurred background child playing with clean water in their country.jpg') no-repeat center center/cover;
-  color: white;
-  position: relative;
-  min-height: 100vh; /* Fill the entire viewport */
-  height: 100vh;     /* Ensure full screen height */
-  padding: 0 0 40px 0;        /* Remove extra padding */
+  background: linear-gradient(to right, #8BD1CB 0%, #2E9DF7 100%); /* Water-like blue gradient background */
+  padding: 0; /* Remove extra padding so content fills the screen */
+  min-height: 100vh; /* Make the hero section fill the whole screen */
   display: flex;
-  flex-direction: row;         /* Place overlay and image side by side */
-  justify-content: flex-start; /* Overlay on the left */
-  align-items: center;       /* Overlay at the bottom */
-  transition: padding 0.3s;
+  align-items: stretch; /* Stretch children to fill height */
+  /* For beginners: The hero section now fills the whole screen */
 }
 
-/* Remove the splash-img styles since we no longer use the <img> tag for the child image */
-.splash-img {
-  display: none;
+/* New container for hero content and image */
+.hero-content {
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100vw;
+  max-width: none;
+  margin: 0;
+  gap: 0;
+  height: 100vh;
+  /* For beginners: This puts the text and image side by side */
+  /* Make the image side bigger than the overlay side */
+  /* For beginners: The image will take up more space than the text area */
 }
 
-/* Overlay with background behind the words, stays in place over the hero image */
+/* Overlay with background behind the words */
 .overlay {
-  max-width: 420px;
-  width: 100%;
-  background: rgba(30, 30, 30, 0.7); /* dark background for readability */
-  padding: 24px 18px;
-  margin: 0 120px 40px 0; /* increase right margin to move overlay further from the child image */
-  border-radius: 12px;
-  box-shadow: 0 3px 16px rgba(0,0,0,0.16);
-  position: absolute; /* position overlay over the hero image */
-  top: 56px;          /* distance from the top of the hero section */
-  left: 16px;         /* distance from the left of the hero section */
-  z-index: 2;         /* make sure overlay is above the image */
-  /* For beginners: This keeps the text box in place over the image */
-}
-
-/* Make sure the hero section has enough height for the overlay */
-.hero {
-  min-height: 380px;
-}
-
-/* Remove the old overlay styles */
-.overlay {
-  background: none; /* No background color */
-  padding: 0;
-  margin: 0 120px 40px 0; /* increase right margin to move overlay further from the child image */
+  flex: 1 1 25%;        /* Take up less width */
+  width: 25vw;
+  background: rgba(30, 30, 30, 0.85);
+  padding: 48px 36px;
   border-radius: 0;
   box-shadow: none;
-  transition: box-shadow 0.3s, transform 0.3s;
-  /* For beginners: This puts the text box on the left side of the hero section and away from the child image */
+  max-width: none;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 1.25em;
+  /* For beginners: This makes the text background take up less space */
 }
 
-.overlay:hover {
-  box-shadow: 0 6px 24px rgba(0,0,0,0.25);
-  transform: scale(1.03);
-}
-
-.hero h1 {
-  font-size: 2.2em; /* revert to previous size */
-  color: #ffd600;
-  margin-bottom: 20px;
-  text-shadow: 1px 1px 6px #222;
-  /* Remove width, letter-spacing, text-align, display so words are side by side */
-}
-
-.hero h1,
-.hero .subhead {
-  color: #ffc907; /* Make heading and subhead yellow */
-}
-
-.subhead {
-  font-size: 0.8em; /* make the subhead text smaller for beginners */
-  color: #ffc907;
-  margin-bottom: 18px;
-  text-shadow: 1px 1px 4px #222;
-  /* For beginners: This is a simple style for the subhead text */
-}
-
-.support-text {
-  font-size: 1em; /* revert support text to previous size */
-  color: #003366; /* dark blue for support text */
-  margin-bottom: 0;
-  text-shadow: 1px 1px 4px #222;
-  /* For beginners: This is a simple style for the support text */
+/* The hero image next to the text */
+.hero-img {
+  flex: 1 1 75%;        /* Take up more width */
+  width: 75vw;
+  max-width: none;
+  height: 100vh;
+  border-radius: 0;
+  box-shadow: none;
+  object-fit: cover;
+  /* For beginners: This makes the photo bigger than the text area */
 }
 
 /* Responsive: Stack overlay and image vertically on small screens */
 @media (max-width: 900px) {
   .hero {
+    min-height: auto;
+    height: auto;
+    padding: 0;
+    /* For beginners: The hero section fills the content area on small devices */
+    background: linear-gradient(to right, #8BD1CB 0%, #2E9DF7 100%);
+  }
+  .hero-content {
     flex-direction: column;
-    align-items: center;
-    padding: 36px 8px 60px 8px;
-    min-height: 320px;
-    text-align: center;
+    align-items: stretch;
+    gap: 0;
+    width: 100vw;
+    height: auto;
+    /* For beginners: The overlay and image stack but do not cover the background completely */
   }
   .overlay {
-    position: static;
-    margin: 0 0 24px 0;
-    max-width: 80vw;   /* make overlay even smaller on small screens */
-    width: 100%;
-    border-radius: 10px;
+    width: 100vw;
+    max-width: 100vw;
+    border-radius: 0;
+    padding: 24px 10px;
+    font-size: 1em;
+    flex: none;
+    height: auto;
+    min-height: 0;
+    /* For beginners: The overlay fits its content */
+  }
+  .hero-img {
+    width: 100vw;
+    max-width: 100vw;
+    height: auto;
+    min-height: 0;
+    border-radius: 0;
+    object-fit: cover;
+    flex: none;
+    /* For beginners: The image fits its content */
+  }
+  /* Restore background for .hero on small screens */
+  .hero {
+    background: none;
+    /* For beginners: Remove the water-like background so overlay and image cover everything */
   }
 }
 
@@ -292,12 +286,22 @@ body {
   }
 
   .hero h1 {
-    font-size: 1.5em;
+    font-size: 2.4em;
+    font-weight: bold;
+    color: #ffc907; /* Match the subheading color */
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 8px #222;
+    letter-spacing: 1px;
+    /* For beginners: This makes the main heading bold and stand out, and matches the subheading color */
   }
 
   .subhead,
   .support-text {
     font-size: 1em;
+    color: #003366; /* Use a darker blue for better contrast */
+    margin-bottom: 0;
+    text-shadow: 1px 1px 4px #222;
+    /* For beginners: This is a simple style for the support text */
   }
 
   /* Hide the splash image on small screens to save space */
@@ -349,6 +353,13 @@ body {
   /* For beginners: Use this class on any text you want to highlight */
 }
 
+.subhead {
+  font-size: 0.55em; /* Make the subhead text even smaller */
+  color: #ffc907;
+  margin-bottom: 18px;
+  text-shadow: 1px 1px 4px #222;
+  /* For beginners: This is a simple style for the subhead text */
+}
 /* 
   You can add more media queries for tablets or larger screens if needed.
   Media queries help make your website look good on all devices!
